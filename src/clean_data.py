@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from html.parser import HTMLParser
 
 class MLStripper(HTMLParser):
@@ -27,6 +29,6 @@ def remove_tags(html):
 
 for in_filename, out_filename in filenames.items():
     with open(in_filename, "r") as in_file:
-        with open(out_filename, "w") as out_file:
+        with open(out_filename, "w", encoding="utf-8") as out_file:
             for line in in_file:
                 out_file.write(remove_tags(line))
